@@ -1,9 +1,9 @@
 // import s from "./App.css";
-import React, { Component } from "react";
-import Statistics from "./Components/Statistics/Statistics";
-import FeedbackOptions from "./Components/Feedback/FeedbackOptions";
-import Section from "./Components/Section/Section";
-import Notification from "./Components/Notification/Notification";
+import React, { Component } from 'react';
+import Statistics from './Components/Statistics/Statistics';
+import FeedbackOptions from './Components/Feedback/FeedbackOptions';
+import Section from './Components/Section/Section';
+import Notification from './Components/Notification/Notification';
 
 class App extends Component {
   state = {
@@ -12,9 +12,9 @@ class App extends Component {
     bad: 0,
   };
 
-  handelClick = (event) => {
+  handelClick = event => {
     const target = event.target.name;
-    this.setState((prevState) => ({ [target]: prevState[target] + 1 }));
+    this.setState(prevState => ({ [target]: prevState[target] + 1 }));
   };
 
   countTotalFeedback = () => {
@@ -44,10 +44,10 @@ class App extends Component {
 
     return (
       <>
-        <Section title={"Please leave feedback"}>
+        <Section title={'Please leave feedback'}>
           <FeedbackOptions options={keys} onLeaveFeedback={this.handelClick} />
         </Section>
-        <Section title={"Statistics"}>
+        <Section title={'Statistics'}>
           {total ? (
             <Statistics
               good={this.state.good}
@@ -57,7 +57,7 @@ class App extends Component {
               positivePercentage={percentage}
             />
           ) : (
-            <Notification message={"No feedback given"} />
+            <Notification message={'No feedback given'} />
           )}
         </Section>
       </>
